@@ -14,6 +14,7 @@ export class Runs extends APIResource {
    * @param params.execute_mode - Optional The mode in which to execute the workflow. | 可选 工作流执行的模式。
    * @param params.connector_id - Optional The ID of the connector to use for the workflow. | 可选 用于工作流的连接器 ID。
    * @param params.app_id - Optional The ID of the app.  | 可选 要进行会话聊天的 App ID
+   * @param params.is_async - Whether to execute asynchronously. true: asynchronous execution; false: synchronous execution (default).  | 可选 是否异步运行,true：异步运行。false：（默认）同步运行。
    * @returns RunWorkflowData | 工作流运行数据
    */
   async create(params: RunWorkflowReq, options?: RequestOptions) {
@@ -100,6 +101,7 @@ export interface RunWorkflowReq {
   execute_mode?: string;
   connector_id?: string;
   app_id?: string;
+  is_async?: boolean;
 }
 
 export interface RunWorkflowData {
